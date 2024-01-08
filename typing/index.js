@@ -1,4 +1,4 @@
-let odai_box = ["Natootoki", "Hello", "Windows", "JavaScript"]
+let odai_box = ["Natootoki", "Hello", "Windows", "JavaScript", "Google", "Japan", "Typing", "HyperText Markup Language"]
 
 const circle = document.getElementById('circle');
 
@@ -57,6 +57,8 @@ function handleKeyPress(event) {
 
     if (keyName === 'Enter') {
         if (document.getElementById('output').textContent == document.getElementById('question').textContent){
+            playSound(880);
+        }else{
             playSound(440);
         }
         document.getElementById('output').textContent = "";
