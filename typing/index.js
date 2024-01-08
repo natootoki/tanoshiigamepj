@@ -21,7 +21,7 @@ function playSound() {
     oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // 周波数: 440Hz
 
     // 出力先の音量を設定
-    gainNode.gain.setValueAtTime(1, audioContext.currentTime);
+    gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
 
     // オシレーターの開始
     oscillator.start();
@@ -29,7 +29,7 @@ function playSound() {
     // 1秒後に停止
     setTimeout(() => {
       oscillator.stop();
-    }, 1000);
+    }, 100);
 }
 
 // キーボードのキーが押されたときのイベントハンドラ
