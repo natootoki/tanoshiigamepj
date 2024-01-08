@@ -1,6 +1,20 @@
-let default_text = document.getElementById('output').textContent;
+let odai_box = ["Natootoki", "Hello", "Windows", "JavaScript"]
 
-function playSound() {
+const circle = document.getElementById('circle');
+
+// 初期位置
+let x = window.innerWidth / 2;
+let y = window.innerHeight / 2;
+
+// 移動量
+const moveSpeed = 10;
+
+function getRandomInt(min, max) {
+    // min（含む）から max（含む）までのランダムな整数を生成
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function playSound(frequency) {
     // Web Audio APIを初期化
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -18,7 +32,7 @@ function playSound() {
 
     // オシレーターの設定
     oscillator.type = 'sine'; // 波形: 正弦波
-    oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // 周波数: 440Hz
+    oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime); // 周波数: 440Hz
 
     // 出力先の音量を設定
     gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
@@ -37,19 +51,38 @@ function handleKeyPress(event) {
     // イベントから押されたキーの名前を取得
     var keyName = event.key;
 
-    // キーの名前が 'a'（小文字）の場合に文字を表示
-    // if (keyName === 'a') {
-    //     document.getElementById('output').textContent += 'A';
-    // }
-
     if (keyName.length == 1) {
         document.getElementById('output').textContent += keyName;
     }
 
     if (keyName === 'Enter') {
-        document.getElementById('output').textContent = default_text;
-        playSound();
+        if (document.getElementById('output').textContent == document.getElementById('question').textContent){
+            playSound(440);
+        }
+        document.getElementById('output').textContent = "";
+        document.getElementById('question').textContent = "";
+        document.getElementById('question').textContent += odai_box[getRandomInt(0,odai_box.length-1)];
     }
+
+    if (keyName === 'ArrowUp') {
+        y -= moveSpeed;
+    }
+
+    if (keyName === 'ArrowDown') {
+        y += moveSpeed;
+    }
+
+    if (keyName === 'ArrowLeft') {
+        x -= moveSpeed;
+    }
+
+    if (keyName === 'ArrowRight') {
+        x += moveSpeed;
+    }
+
+    // 新しい位置を適用
+    circle.style.left = `${x}px`;
+    circle.style.top = `${y}px`;
 }
 
 // キーボードのキーが押されたときにイベントハンドラを呼び出す
