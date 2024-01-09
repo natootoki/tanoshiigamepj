@@ -58,9 +58,12 @@ function handleKeyPress(event) {
     if (keyName === 'Enter') {
         if (document.getElementById('output').textContent == document.getElementById('question').textContent){
             playSound(880);
+            document.getElementById('log').innerHTML = document.getElementById('question').textContent+'<br><span style="color: blue;">'+document.getElementById('output').textContent+"</span><br><br>" + document.getElementById('log').innerHTML;
         }else{
             playSound(440);
+            document.getElementById('log').innerHTML = document.getElementById('question').textContent+'<br><span style="color: red;">'+document.getElementById('output').textContent+"</span><br><br>" + document.getElementById('log').innerHTML;
         }
+
         document.getElementById('output').textContent = "";
         document.getElementById('question').textContent = "";
         document.getElementById('question').textContent += odai_box[getRandomInt(0,odai_box.length-1)];
