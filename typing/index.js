@@ -1,4 +1,6 @@
 let odai_box = ["Natootoki", "Hello", "Windows", "JavaScript", "Google", "Japan", "Typing", "HyperText Markup Language"]
+let odai_log = []
+let type_log = []
 
 const circle = document.getElementById('circle');
 
@@ -55,13 +57,26 @@ function handleKeyPress(event) {
         document.getElementById('output').textContent += keyName;
     }
 
+    // エンター押したときの処理
     if (keyName === 'Enter') {
+        odai_log.push(document.getElementById('question').textContent)
+        type_log.push(document.getElementById('output').textContent)
+        console.log(odai_log)
+        console.log(type_log)
+        // 合ってるとき
         if (document.getElementById('output').textContent == document.getElementById('question').textContent){
             playSound(880);
-            document.getElementById('log').innerHTML = document.getElementById('question').textContent+'<br><span style="color: blue;">'+document.getElementById('output').textContent+"</span><br><br>" + document.getElementById('log').innerHTML;
-        }else{
+        }
+        // 間違ってるとき
+        else{
             playSound(440);
-            document.getElementById('log').innerHTML = document.getElementById('question').textContent+'<br><span style="color: red;">'+document.getElementById('output').textContent+"</span><br><br>" + document.getElementById('log').innerHTML;
+        }
+        document.getElementById('log').innerHTML = "";
+        for(i=0;i<odai_log.length&&i<5;i++){
+            // 青
+            document.getElementById('log').innerHTML = document.getElementById('log').innerHTML + odai_log[odai_log.length-1-i] + "<br>";
+            // 赤
+            document.getElementById('log').innerHTML = document.getElementById('log').innerHTML + type_log[odai_log.length-1-i] + "<br>" + "<br>";
         }
 
         document.getElementById('output').textContent = "";
