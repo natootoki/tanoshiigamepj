@@ -1,6 +1,7 @@
 let odai_box = ["Natootoki", "Hello", "Windows", "JavaScript", "Google", "Japan", "Typing", "HyperText Markup Language"]
 let odai_log = []
 let type_log = []
+let color = "";
 
 const circle = document.getElementById('circle');
 
@@ -71,12 +72,15 @@ function handleKeyPress(event) {
         else{
             playSound(440);
         }
-        document.getElementById('log').innerHTML = "";
+        document.getElementById('log').innerHTML = "<br>";
         for(i=0;i<odai_log.length&&i<5;i++){
-            // 青
+            if(odai_log[odai_log.length-1-i] == type_log[odai_log.length-1-i]){
+                color = "blue";
+            }else{
+                color = "red";
+            }
             document.getElementById('log').innerHTML = document.getElementById('log').innerHTML + odai_log[odai_log.length-1-i] + "<br>";
-            // 赤
-            document.getElementById('log').innerHTML = document.getElementById('log').innerHTML + type_log[odai_log.length-1-i] + "<br>" + "<br>";
+            document.getElementById('log').innerHTML = document.getElementById('log').innerHTML +'<span style="color: ' + color + ';">'+ type_log[odai_log.length-1-i] + '</span>' + "<br>" + "<br>";
         }
 
         document.getElementById('output').textContent = "";
