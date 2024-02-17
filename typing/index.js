@@ -1,7 +1,17 @@
-let odai_box = ["Natootoki", "Hello", "Windows", "JavaScript", "Google", "Japan", "Typing", "HyperText Markup Language"]
+let odai_box = ["Natootoki", "Hello, world!", "Windows", "JavaScript", "Google",
+"Japan", "Typing", "HyperText Markup Language", "Cascading Style Sheet", "Python",
+"Cola", "Linux", "Raspberry Pi", "Arduino", "Hypertext Preprocessor",
+"Hypertext Transfer Protocol", "Oracle", "PostgreSQL"]
 let odai_log = []
 let type_log = []
 let color = "";
+let odai = "";
+
+odai = odai_box[getRandomInt(0,odai_box.length-1)];
+
+console.log(odai[0]);
+
+document.getElementById('question').textContent += odai;
 
 const circle = document.getElementById('circle');
 
@@ -54,24 +64,17 @@ function handleKeyPress(event) {
     // イベントから押されたキーの名前を取得
     var keyName = event.key;
 
-    if (keyName.length == 1) {
+    if (keyName.length == 1 && keyName == odai[document.getElementById('output').textContent.length]) {
         document.getElementById('output').textContent += keyName;
+    }else if(keyName.length == 1){
+        playSound(440);
     }
 
     // エンター押したときの処理
-    if (keyName === 'Enter') {
+    if (keyName === 'Enter' && document.getElementById('output').textContent == document.getElementById('question').textContent) {
         odai_log.push(document.getElementById('question').textContent)
         type_log.push(document.getElementById('output').textContent)
-        console.log(odai_log)
-        console.log(type_log)
-        // 合ってるとき
-        if (document.getElementById('output').textContent == document.getElementById('question').textContent){
-            playSound(880);
-        }
-        // 間違ってるとき
-        else{
-            playSound(440);
-        }
+        playSound(880);
         document.getElementById('log').innerHTML = "<br>";
         for(i=0;i<odai_log.length&&i<5;i++){
             if(odai_log[odai_log.length-1-i] == type_log[odai_log.length-1-i]){
@@ -85,7 +88,8 @@ function handleKeyPress(event) {
 
         document.getElementById('output').textContent = "";
         document.getElementById('question').textContent = "";
-        document.getElementById('question').textContent += odai_box[getRandomInt(0,odai_box.length-1)];
+        odai = odai_box[getRandomInt(0,odai_box.length-1)];
+        document.getElementById('question').textContent += odai;
     }
 
     if (keyName === 'ArrowUp') {
