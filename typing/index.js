@@ -1,17 +1,19 @@
 let odai_box = ["Natootoki", "Hello, world!", "Windows", "JavaScript", "Google",
 "Japan", "Typing", "HyperText Markup Language", "Cascading Style Sheet", "Python",
 "Cola", "Linux", "Raspberry Pi", "Arduino", "Hypertext Preprocessor",
-"Hypertext Transfer Protocol", "Oracle", "PostgreSQL"]
+"Hypertext Transfer Protocol", "Oracle", "PostgreSQL",
+"Perl", "Java", "Ruby", "Docker", "Kubernetes"]
 let odai_log = []
 let type_log = []
+log_num = 7
 let color = "";
 let odai = "";
+let type = "";
 
 odai = odai_box[getRandomInt(0,odai_box.length-1)];
 
-console.log(odai[0]);
-
 document.getElementById('question').textContent += odai;
+document.getElementById('output').textContent += "_";
 
 const circle = document.getElementById('circle');
 
@@ -64,29 +66,33 @@ function handleKeyPress(event) {
     // イベントから押されたキーの名前を取得
     var keyName = event.key;
 
-    if (keyName.length == 1 && keyName == odai[document.getElementById('output').textContent.length]) {
-        document.getElementById('output').textContent += keyName;
+    if (keyName.length == 1 && keyName == odai[document.getElementById('output').textContent.length-1]) {
+        color = "lime"
+        type += keyName
+        document.getElementById('output').innerHTML = "";
+        document.getElementById('output').innerHTML = '<span style="color: ' + color + ';">'+ type + '</span>';
+        document.getElementById('output').innerHTML += "_";
     }else if(keyName.length == 1){
         playSound(440);
     }
 
     // エンター押したときの処理
-    if (keyName === 'Enter' && document.getElementById('output').textContent == document.getElementById('question').textContent) {
+    if (keyName === 'Enter' && type == document.getElementById('question').textContent) {
         odai_log.push(document.getElementById('question').textContent)
-        type_log.push(document.getElementById('output').textContent)
+        type_log.push(type)
         playSound(880);
         document.getElementById('log').innerHTML = "<br>";
-        for(i=0;i<odai_log.length&&i<5;i++){
+        for(i=0;i<odai_log.length&&i<log_num;i++){
             if(odai_log[odai_log.length-1-i] == type_log[odai_log.length-1-i]){
-                color = "blue";
+                color = "aqua";
             }else{
                 color = "red";
             }
-            document.getElementById('log').innerHTML = document.getElementById('log').innerHTML + odai_log[odai_log.length-1-i] + "<br>";
             document.getElementById('log').innerHTML = document.getElementById('log').innerHTML +'<span style="color: ' + color + ';">'+ type_log[odai_log.length-1-i] + '</span>' + "<br>" + "<br>";
         }
 
-        document.getElementById('output').textContent = "";
+        type = "";
+        document.getElementById('output').textContent = "_";
         document.getElementById('question').textContent = "";
         odai = odai_box[getRandomInt(0,odai_box.length-1)];
         document.getElementById('question').textContent += odai;
