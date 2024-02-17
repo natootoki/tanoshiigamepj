@@ -1,11 +1,15 @@
-let odai_box = ["Natootoki", "Hello, world!", "Windows", "JavaScript", "Google",
-"Japan", "Typing", "HyperText Markup Language", "Cascading Style Sheet", "Python",
-"Cola", "Linux", "Raspberry Pi", "Arduino", "Hypertext Preprocessor",
-"Hypertext Transfer Protocol", "Oracle", "PostgreSQL",
-"Perl", "Java", "Ruby", "Docker", "Kubernetes"]
+let odai_box = [
+    "Natootoki", "Hello, world!", "Windows", "JavaScript", "Google",
+    "Japan", "Typing", "HyperText Markup Language", "Cascading Style Sheet", "Python",
+    "Cola", "Linux", "Raspberry Pi", "Arduino", "Hypertext Preprocessor",
+    "Hypertext Transfer Protocol", "Oracle", "PostgreSQL",
+    "Perl", "Java", "Ruby", "Docker", "Kubernetes"
+]
 let odai_log = []
 let type_log = []
-log_num = 7
+let log_num = 7;
+let unique_num = 3;
+let unique_count = 0;
 let color = "";
 let odai = "";
 let type = "";
@@ -95,6 +99,16 @@ function handleKeyPress(event) {
         document.getElementById('output').textContent = "_";
         document.getElementById('question').textContent = "";
         odai = odai_box[getRandomInt(0,odai_box.length-1)];
+        while(unique_count < unique_num){
+            if(odai == odai_log[odai_log.length-1-unique_count]){
+                odai = odai_box[getRandomInt(0,odai_box.length-1)];
+                console.log("kaburi",unique_count+1)
+                unique_count = 0
+            }else{
+                unique_count++;
+            }
+        }
+        unique_count = 0;
         document.getElementById('question').textContent += odai;
     }
 
