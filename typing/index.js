@@ -13,6 +13,21 @@ let color = "";
 let odai = "";
 let type = "";
 
+let positive = 0;
+let negative = 0;
+let accuracy = 0;
+let parts = String(accuracy.toFixed(5)).split('.'); // 小数点を基準に分割
+let integerPart = parts[0]; // 整数部分
+let decimalPart = parts[1] || ''; // 小数部分（ない場合は空文字列）
+// 小数部分が足りない場合、ゼロで埋める
+let paddedDecimalPart = decimalPart.padEnd(5, '0'); // 2桁までゼロ埋め
+// ゼロ埋めした小数部分を含めて結果を生成
+let accuracy_result = integerPart + (paddedDecimalPart ? '.' + paddedDecimalPart : '');
+// 起点となる時間を取得
+const startTime = new Date();
+let timer = 0;
+let speed = 0;
+
 odai = odai_box[getRandomInt(0,odai_box.length-1)];
 
 const circle = document.getElementById('circle');
@@ -62,6 +77,8 @@ function playSound(frequency) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('time_num').innerHTML = timer;
+    document.getElementById('accuracy_num').innerHTML = accuracy_result;
     // ここにHTMLが読み込まれた後に行いたい処理を記述します
     document.getElementById('question').innerHTML = "";
     for(let i=0;i<odai.length;i++){
@@ -71,6 +88,13 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('question').innerHTML += odai[i];
         }
     }
+    setInterval(function() {
+        const currentTime = new Date();
+        timer = (currentTime - startTime)/1000;
+        speed = positive/timer * 60;
+        document.getElementById('time_num').innerHTML = timer.toFixed(0);
+        document.getElementById('speed_num').innerHTML = speed.toFixed(0);
+      }, 1000);
 });
 
 // キーボードのキーが押されたときのイベントハンドラ
@@ -80,6 +104,19 @@ function handleKeyPress(event) {
 
     if (keyName.length == 1 && keyName == odai[type.length]) {
         color = "lime"
+        positive++;
+        accuracy = positive/(positive + negative);
+        parts = String(accuracy.toFixed(5)).split('.'); // 小数点を基準に分割
+        integerPart = parts[0]; // 整数部分
+        decimalPart = parts[1] || ''; // 小数部分（ない場合は空文字列）
+        // 小数部分が足りない場合、ゼロで埋める
+        paddedDecimalPart = decimalPart.padEnd(5, '0'); // 2桁までゼロ埋め
+        // ゼロ埋めした小数部分を含めて結果を生成
+        accuracy_result = integerPart + (paddedDecimalPart ? '.' + paddedDecimalPart : '');
+        speed = positive/timer * 60;
+        document.getElementById('positive_num').innerHTML = positive;
+        document.getElementById('accuracy_num').innerHTML = accuracy_result;
+        document.getElementById('speed_num').innerHTML = speed.toFixed(0);
         type += keyName
         document.getElementById('question').innerHTML = "";
         for(let i=0;i<odai.length;i++){
@@ -124,6 +161,17 @@ function handleKeyPress(event) {
             }
         }
     }else if(keyName.length == 1){
+        negative++;
+        accuracy = positive/(positive + negative);
+        parts = String(accuracy.toFixed(5)).split('.'); // 小数点を基準に分割
+        integerPart = parts[0]; // 整数部分
+        decimalPart = parts[1] || ''; // 小数部分（ない場合は空文字列）
+        // 小数部分が足りない場合、ゼロで埋める
+        paddedDecimalPart = decimalPart.padEnd(5, '0'); // 2桁までゼロ埋め
+        // ゼロ埋めした小数部分を含めて結果を生成
+        accuracy_result = integerPart + (paddedDecimalPart ? '.' + paddedDecimalPart : '');
+        document.getElementById('negative_num').innerHTML = negative;
+        document.getElementById('accuracy_num').innerHTML = accuracy_result;
         playSound(440);
     }
 
