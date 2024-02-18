@@ -6,7 +6,6 @@ let odai_box = [
     "Perl", "Java", "Ruby", "Docker", "Kubernetes"
 ]
 let odai_log = []
-let type_log = []
 let log_num = 7;
 let unique_num = 3;
 let unique_count = 0;
@@ -94,16 +93,12 @@ function handleKeyPress(event) {
         }
         if (type == document.getElementById('question').textContent){
             odai_log.push(document.getElementById('question').textContent)
-            type_log.push(type)
             playSound(880);
             document.getElementById('log').innerHTML = "<br>";
-            for(i=0;i<odai_log.length&&i<log_num;i++){
-                if(odai_log[odai_log.length-1-i] == type_log[odai_log.length-1-i]){
-                    color = "aqua";
-                }else{
-                    color = "red";
-                }
-                document.getElementById('log').innerHTML = document.getElementById('log').innerHTML +'<span style="color: ' + color + ';">'+ type_log[odai_log.length-1-i] + '</span>' + "<br>" + "<br>";
+            for(let i=0;i<odai_log.length&&i<log_num;i++){
+                color = "aqua";
+                let inner_index = odai_log.length-i;
+                document.getElementById('log').innerHTML = document.getElementById('log').innerHTML + inner_index + "：" + '<span style="color: ' + color + ';">'+ odai_log[odai_log.length-1-i] + '</span>' + "<br>" + "<br>";
             }
     
             type = "";
