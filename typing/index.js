@@ -16,15 +16,6 @@ let type = "";
 
 odai = odai_box[getRandomInt(0,odai_box.length-1)];
 
-document.getElementById('question').innerHTML = "";
-for(let i=0;i<odai.length;i++){
-    if(i==type.length){
-        document.getElementById('question').innerHTML += "<u>"+odai[i]+"</u>";
-    }else{
-        document.getElementById('question').innerHTML += odai[i];
-    }
-}
-
 const circle = document.getElementById('circle');
 
 // 初期位置
@@ -70,6 +61,18 @@ function playSound(frequency) {
       oscillator.stop();
     }, 100);
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    // ここにHTMLが読み込まれた後に行いたい処理を記述します
+    document.getElementById('question').innerHTML = "";
+    for(let i=0;i<odai.length;i++){
+        if(i==type.length){
+            document.getElementById('question').innerHTML += "<u>"+odai[i]+"</u>";
+        }else{
+            document.getElementById('question').innerHTML += odai[i];
+        }
+    }
+});
 
 // キーボードのキーが押されたときのイベントハンドラ
 function handleKeyPress(event) {
