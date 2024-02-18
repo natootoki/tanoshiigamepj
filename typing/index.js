@@ -16,8 +16,14 @@ let type = "";
 
 odai = odai_box[getRandomInt(0,odai_box.length-1)];
 
-document.getElementById('question').textContent += odai;
-document.getElementById('output').textContent += "_";
+document.getElementById('question').innerHTML = "";
+for(let i=0;i<odai.length;i++){
+    if(i==type.length){
+        document.getElementById('question').innerHTML += "<u>"+odai[i]+"</u>";
+    }else{
+        document.getElementById('question').innerHTML += odai[i];
+    }
+}
 
 const circle = document.getElementById('circle');
 
@@ -70,46 +76,61 @@ function handleKeyPress(event) {
     // イベントから押されたキーの名前を取得
     var keyName = event.key;
 
-    if (keyName.length == 1 && keyName == odai[document.getElementById('output').textContent.length-1]) {
+    if (keyName.length == 1 && keyName == odai[type.length]) {
         color = "lime"
         type += keyName
-        document.getElementById('output').innerHTML = "";
-        document.getElementById('output').innerHTML = '<span style="color: ' + color + ';">'+ type + '</span>';
-        document.getElementById('output').innerHTML += "_";
+        document.getElementById('question').innerHTML = "";
+        for(let i=0;i<odai.length;i++){
+            if(i==type.length){
+                document.getElementById('question').innerHTML += "<u>"+odai[i]+"</u>";
+            }else if(i<type.length){
+                document.getElementById('question').innerHTML += '<span style="color: ' + color + ';">'+ odai[i] + '</span>';
+            }else{
+                document.getElementById('question').innerHTML += odai[i];
+            }
+        }
+        if (type == document.getElementById('question').textContent){
+            odai_log.push(document.getElementById('question').textContent)
+            type_log.push(type)
+            playSound(880);
+            document.getElementById('log').innerHTML = "<br>";
+            for(i=0;i<odai_log.length&&i<log_num;i++){
+                if(odai_log[odai_log.length-1-i] == type_log[odai_log.length-1-i]){
+                    color = "aqua";
+                }else{
+                    color = "red";
+                }
+                document.getElementById('log').innerHTML = document.getElementById('log').innerHTML +'<span style="color: ' + color + ';">'+ type_log[odai_log.length-1-i] + '</span>' + "<br>" + "<br>";
+            }
+    
+            type = "";
+            document.getElementById('question').textContent = "";
+            odai = odai_box[getRandomInt(0,odai_box.length-1)];
+            while(unique_count < unique_num){
+                if(odai == odai_log[odai_log.length-1-unique_count]){
+                    odai = odai_box[getRandomInt(0,odai_box.length-1)];
+                    console.log("kaburi",unique_count+1)
+                    unique_count = 0
+                }else{
+                    unique_count++;
+                }
+            }
+            unique_count = 0;
+            document.getElementById('question').innerHTML = "";
+            for(let i=0;i<odai.length;i++){
+                if(i==type.length){
+                    document.getElementById('question').innerHTML += "<u>"+odai[i]+"</u>";
+                }else{
+                    document.getElementById('question').innerHTML += odai[i];
+                }
+            }
+        }
     }else if(keyName.length == 1){
         playSound(440);
     }
 
     // エンター押したときの処理
     if (keyName === 'Enter' && type == document.getElementById('question').textContent) {
-        odai_log.push(document.getElementById('question').textContent)
-        type_log.push(type)
-        playSound(880);
-        document.getElementById('log').innerHTML = "<br>";
-        for(i=0;i<odai_log.length&&i<log_num;i++){
-            if(odai_log[odai_log.length-1-i] == type_log[odai_log.length-1-i]){
-                color = "aqua";
-            }else{
-                color = "red";
-            }
-            document.getElementById('log').innerHTML = document.getElementById('log').innerHTML +'<span style="color: ' + color + ';">'+ type_log[odai_log.length-1-i] + '</span>' + "<br>" + "<br>";
-        }
-
-        type = "";
-        document.getElementById('output').textContent = "_";
-        document.getElementById('question').textContent = "";
-        odai = odai_box[getRandomInt(0,odai_box.length-1)];
-        while(unique_count < unique_num){
-            if(odai == odai_log[odai_log.length-1-unique_count]){
-                odai = odai_box[getRandomInt(0,odai_box.length-1)];
-                console.log("kaburi",unique_count+1)
-                unique_count = 0
-            }else{
-                unique_count++;
-            }
-        }
-        unique_count = 0;
-        document.getElementById('question').textContent += odai;
     }
 
     if (keyName === 'ArrowUp') {
