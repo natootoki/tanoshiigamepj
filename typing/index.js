@@ -6,6 +6,7 @@ let odai_box = [
     "Perl", "Java", "Ruby", "Docker", "Kubernetes",
     "GitHub", "Git", "GitLab", "GitBash", "Subversion",
     "Apache", "Tomcat", "NginX", "VMware", "VirtualBox",
+    "こんにちは", "おはよう", "こんばんは", "さようなら", "またあした",
 ]
 let odai_log = []
 let log_num = 7;
@@ -33,7 +34,23 @@ let speed = 0;
 let mode_content = ["omoji", "komoji"]
 let mode = 0;
 
+// 日本語文字列をローマ字に変換する関数
+function convertToRomaji(str) {
+    // ローマ字に変換する
+    return wanakana.toRomaji(str);
+}
+
 odai = odai_box[getRandomInt(0,odai_box.length-1)];
+if(containsJapanese(odai)){
+    // 使用例
+    var japaneseString = odai;
+    var romajiString = convertToRomaji(japaneseString);
+    console.log(romajiString); // 出力結果: "konnichiwa, sekai!"
+    odai = romajiString;
+}
+if (mode_content[mode] == "komoji"){
+    odai = odai.toLowerCase();
+}
 
 const circle = document.getElementById('circle');
 
@@ -43,6 +60,10 @@ let y = window.innerHeight / 2;
 
 // 移動量
 const moveSpeed = 10;
+
+function containsJapanese(str) {
+    return /[^\x01-\x7E]/.test(str); // ASCII以外の文字が含まれているかどうかを判定
+}
 
 function getRandomInt(min, max) {
     // min（含む）から max（含む）までのランダムな整数を生成
@@ -147,17 +168,34 @@ function handleKeyPress(event) {
             type = "";
             document.getElementById('question').textContent = "";
             odai = odai_box[getRandomInt(0,odai_box.length-1)];
+            if(containsJapanese(odai)){
+                // 使用例
+                var japaneseString = odai;
+                var romajiString = convertToRomaji(japaneseString);
+                console.log(romajiString); // 出力結果: "konnichiwa, sekai!"
+                odai = romajiString;
+            }
+            if (mode_content[mode] == "komoji"){
+                odai = odai.toLowerCase();
+            }
             while(unique_count < unique_num){
                 if(odai == odai_log[odai_log.length-1-unique_count]){
                     odai = odai_box[getRandomInt(0,odai_box.length-1)];
+                    if(containsJapanese(odai)){
+                        // 使用例
+                        var japaneseString = odai;
+                        var romajiString = convertToRomaji(japaneseString);
+                        console.log(romajiString); // 出力結果: "konnichiwa, sekai!"
+                        odai = romajiString;
+                    }
+                    if (mode_content[mode] == "komoji"){
+                        odai = odai.toLowerCase();
+                    }
                     console.log("kaburi",unique_count+1)
                     unique_count = 0
                 }else{
                     unique_count++;
                 }
-            }
-            if (mode_content[mode] == "komoji"){
-                odai = odai.toLowerCase();
             }
             unique_count = 0;
             document.getElementById('question').innerHTML = "";
