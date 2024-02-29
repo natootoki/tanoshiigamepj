@@ -3,7 +3,9 @@ let odai_box = [
     "Japan", "Typing", "HyperText Markup Language", "Cascading Style Sheet", "Python",
     "Cola", "Linux", "Raspberry Pi", "Arduino", "Hypertext Preprocessor",
     "Hypertext Transfer Protocol", "Oracle", "PostgreSQL",
-    "Perl", "Java", "Ruby", "Docker", "Kubernetes"
+    "Perl", "Java", "Ruby", "Docker", "Kubernetes",
+    "GitHub", "Git", "GitLab", "GitBash", "Subversion",
+    "Apache", "Tomcat", "NginX", "VMware", "VirtualBox",
 ]
 let odai_log = []
 let log_num = 7;
