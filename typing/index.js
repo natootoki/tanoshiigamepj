@@ -30,6 +30,9 @@ const startTime = new Date();
 let timer = 0;
 let speed = 0;
 
+let mode_content = ["omoji", "komoji"]
+let mode = 0;
+
 odai = odai_box[getRandomInt(0,odai_box.length-1)];
 
 const circle = document.getElementById('circle');
@@ -103,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function handleKeyPress(event) {
     // イベントから押されたキーの名前を取得
     var keyName = event.key;
+    // console.log(keyName)
 
     if (keyName.length == 1 && keyName == odai[type.length]) {
         color = "lime"
@@ -152,6 +156,9 @@ function handleKeyPress(event) {
                     unique_count++;
                 }
             }
+            if (mode_content[mode] == "komoji"){
+                odai = odai.toLowerCase();
+            }
             unique_count = 0;
             document.getElementById('question').innerHTML = "";
             for(let i=0;i<odai.length;i++){
@@ -179,6 +186,12 @@ function handleKeyPress(event) {
 
     // エンター押したときの処理
     if (keyName === 'Enter' && type == document.getElementById('question').textContent) {
+    }
+
+    if (keyName === 'Control') {
+        mode++;
+        mode = mode % mode_content.length;
+        console.log(mode)
     }
 
     if (keyName === 'ArrowUp') {
