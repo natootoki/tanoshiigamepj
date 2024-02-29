@@ -9,6 +9,7 @@ let odai_box = [
     "こんにちは", "おはよう", "こんばんは", "さようなら", "またあした",
     "OpenAI", "ChatGPT", "Microsoft","Office", "Excel",
     "Word", "PowerPoint", "Access", "Keyboard", "Mouse",
+    "ちばけんにえいこうあれ", "こーらさいこう", "たいぴんぐさいこう", "かがくとしをつくる", "たのしいげーむpj",
 ]
 let odai_log = []
 let log_num = 7;
