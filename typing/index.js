@@ -7,6 +7,8 @@ let odai_box = [
     "GitHub", "Git", "GitLab", "GitBash", "Subversion",
     "Apache", "Tomcat", "NginX", "VMware", "VirtualBox",
     "こんにちは", "おはよう", "こんばんは", "さようなら", "またあした",
+    "OpenAI", "ChatGPT", "Microsoft","Office", "Excel",
+    "Word", "PowerPoint", "Access", "Keyboard", "Mouse",
 ]
 let odai_log = []
 let log_num = 7;
