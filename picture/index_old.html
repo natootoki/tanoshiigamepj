@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画像表示練習</title>
+    <style>
+        #imageContainer {
+            position: relative;
+            width: 400px;
+            height: 300px;
+        }
+
+        #imageContainer img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>画像表示練習</h1>
+    <div id="imageContainer"></div>
+
+    <script>
+
+        var imageList = [
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*0,
+                y: 32*2,
+                clipX: 0,
+                clipY: 32,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*1,
+                y: 32*2,
+                clipX: 0,
+                clipY: 32,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*2,
+                y: 32*2,
+                clipX: 0,
+                clipY: 32,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*3,
+                y: 32*2,
+                clipX: 0,
+                clipY: 32,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*4,
+                y: 32*2,
+                clipX: 0,
+                clipY: 32,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*5,
+                y: 32*2,
+                clipX: 0,
+                clipY: 32,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*6,
+                y: 32*2,
+                clipX: 0,
+                clipY: 32,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*7,
+                y: 32*2,
+                clipX: 0,
+                clipY: 32,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*8,
+                y: 32*2,
+                clipX: 0,
+                clipY: 32,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*9,
+                y: 32*2,
+                clipX: 0,
+                clipY: 32,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*2,
+                y: 0,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*3,
+                y: 0,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*4,
+                y: 0,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*5,
+                y: 0,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*6,
+                y: 0,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*7,
+                y: 0,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*2,
+                y: 32,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*3,
+                y: 32,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*4,
+                y: 32,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*5,
+                y: 32,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*6,
+                y: 32,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'back_ground.png',
+                x: 32*7,
+                y: 32,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'castle.png',
+                x: 32,
+                y: 0,
+                clipX: 32,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 64
+            },
+            {
+                imageUrl: 'castle.png',
+                x: 256,
+                y: 0,
+                clipX: 32,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 64
+            },
+            {
+                imageUrl: 'slime.png',
+                x: 32*9,
+                y: 32,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 32
+            },
+            {
+                imageUrl: 'castle.png',
+                x: 0,
+                y: 0,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 64
+            },
+            {
+                imageUrl: 'castle.png',
+                x: 256+32,
+                y: 0,
+                clipX: 0,
+                clipY: 0,
+                clipWidth: 32,
+                clipHeight: 64
+            },
+            // 他の画像データも追加可能
+        ];
+
+        // 指定した座標に画像を表示する関数
+        function displayImage(imageUrl, containerId, x, y, clipX, clipY, clipWidth, clipHeight) {
+            var container = document.getElementById(containerId);
+            var img = document.createElement('img');
+            img.src = imageUrl;
+            img.style.position = 'absolute';
+            img.style.left = (x - clipX) + 'px'; // 切り取る範囲の左上隅の座標からの相対位置
+            img.style.top = (y - clipY) + 'px'; // 切り取る範囲の左上隅の座標からの相対位置
+            img.style.clip = 'rect(' + clipY + 'px, ' + (clipX + clipWidth) + 'px, ' + (clipY + clipHeight) + 'px, ' + clipX + 'px)';
+            container.innerHTML = ""; // コンテナ内の既存の要素をクリア
+            container.appendChild(img);
+        }
+
+        function displayImages() {
+            var container = document.getElementById("imageContainer");
+            container.innerHTML = ""; // コンテナ内の既存の要素をクリア
+
+            imageList.forEach(function(imageData) {
+                var img = document.createElement('img');
+                img.src = imageData.imageUrl;
+                img.style.position = 'absolute';
+                img.style.left = (imageData.x - imageData.clipX) + 'px'; // 切り取る範囲の左上隅の座標からの相対位置
+                img.style.top = (imageData.y - imageData.clipY) + 'px'; // 切り取る範囲の左上隅の座標からの相対位置
+                img.style.clip = 'rect(' + imageData.clipY + 'px, ' + (imageData.clipX + imageData.clipWidth) + 'px, ' + (imageData.clipY + imageData.clipHeight) + 'px, ' + imageData.clipX + 'px)';
+                container.appendChild(img);
+            });
+            console.log("Hello.");
+        }
+
+        function main() {
+            if (imageList[24].x < 256+32) {
+                imageList[24].x++;
+            }
+            displayImages();
+            requestAnimationFrame(main);
+        }
+
+        requestAnimationFrame(main);
+
+        // displayImages()
+        // フレームレートに合わせて再度アニメーションをリクエスト
+
+        // 画像表示関数を呼び出す例
+        // displayImage('./slime.png', 'imageContainer', 50, 0, 0, 0, 32, 32);
+        // displayImage('./castle.png', 'imageContainer', 50, 0, 0, 0, 64, 64);
+
+        // ページをクリックしたときに実行される関数
+        function handleClick() {
+            // displayImage('./slime.png', 'imageContainer', 50, 0, 32, 0, 32, 32);
+            if (imageList[24].x >= 32*9) {
+                imageList[24].x = 0;
+            }
+        }
+
+        // クリックを離したときに実行される関数
+        function handleRelease() {
+            // displayImage('./slime.png', 'imageContainer', 50, 0, 0, 0, 32, 32);
+        }
+
+        // クリックイベントのリスナーを設定
+        document.addEventListener('mousedown', handleClick);
+        document.addEventListener('mouseup', handleRelease);
+    </script>
+</body>
+</html>
