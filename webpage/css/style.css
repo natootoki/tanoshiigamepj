@@ -57,3 +57,13 @@ img {
 .main-nav a:hover {
     color: #f00;
 }
+
+.cover {
+    background-size: cover;
+    background-position: center bottom;
+    height: 800px;
+}
+
+.cover-home {
+    background-image: url(../images/cover-home-s.png)
+}
