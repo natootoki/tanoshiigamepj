@@ -7,7 +7,7 @@ html {
 body {
     font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "BIZ UDPGothic", sans-serif;
     line-height: 1.7;
-    color: #432;
+    color: #fed;
 }
 
 a {
@@ -51,7 +51,7 @@ img {
 }
 
 .main-nav a {
-    color: #432
+    color: #fed
 }
 
 .main-nav a:hover {
