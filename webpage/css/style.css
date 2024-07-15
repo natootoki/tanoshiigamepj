@@ -31,11 +31,19 @@ img {
     font-weight: normal;
 }
 
-.page-title {
+.page-title,
+.heading-large {
     font-size: 3rem;
     text-align: center;
+}
+
+.page-title {
     margin-top: 2rem;
     line-height: 1.4;
+}
+
+.heading-large {
+    margin-bottom: 1rem;
 }
 
 .logo {
@@ -66,4 +74,14 @@ img {
 
 .cover-home {
     background-image: url(../images/cover-home-s.png)
+}
+
+.about {
+    max-width: 736px;
+    padding: 0 1.5rem;
+    margin: 3rem auto 4rem;
+}
+
+.about p {
+    margin-bottom: 3rem;
 }
