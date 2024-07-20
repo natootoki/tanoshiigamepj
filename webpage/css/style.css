@@ -82,7 +82,7 @@ img {
 .cover {
     background-size: cover;
     background-position: center bottom;
-    height: 800px;
+    height: 1200px;
 }
 
 .cover-home {
@@ -97,4 +97,25 @@ img {
 
 .about p {
     margin-bottom: 3rem;
+}
+
+.info {
+    width: 100%;
+    max-width:544px;
+    margin: auto;
+    padding: 0 1.5rem;
+    border-spacing: 0;
+}
+
+.info th,
+.info td {
+    border-bottom: 1px solid #c9c2bc;
+}
+.info th {
+    text-align: left;
+    font-weight: normal;
+    padding: 1rem;
+}
+.info td {
+    padding: 1rem 0;
 }
