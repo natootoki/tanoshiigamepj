@@ -18,6 +18,12 @@ img {
     max-width: 100%;
 }
 
+.wrapper {
+    max-width: 1120px;
+    margin: auto;
+    padding: 0 1.5rem;
+}
+
 .align-center {
     text-align: center;
 }
@@ -57,6 +63,9 @@ img {
 }
 .btn:hover {
     background-color: #aa0000;
+    scale: 1.2 1.5;
+    rotate: -5deg;
+    translate: 10px;
 }
 
 .logo {
@@ -133,4 +142,36 @@ img {
     padding: 2rem 0;
     margin-top: 6rem;
     color: #fff;
+}
+
+@media (min-width: 800px) {
+    .page-title {
+        font-size: 5rem;
+    }
+    .heading-large {
+        font-size: 4rem;
+    }
+
+    .page-header {
+        display:flex;
+        justify-content: space-between;
+        padding-top: 1.5rem;
+    }
+    .main-nav {
+        font-size: 2rem;
+    }
+    .cover-home {
+        background-image: url(../images/cover-home-l.png)
+    }
+    .about {
+        margin: 4rem auto 0;
+    }
+
+    .page-footer {
+        background-image: url(../images/footer-l.png);
+        padding-top: 12rem;
+    }
+    .info th {
+        padding-left: 2.5rem;
+    }
 }
