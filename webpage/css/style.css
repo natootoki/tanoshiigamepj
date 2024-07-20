@@ -82,7 +82,7 @@ img {
 .cover {
     background-size: cover;
     background-position: center bottom;
-    height: 1200px;
+    height: 800px;
 }
 
 .cover-home {
@@ -97,6 +97,13 @@ img {
 
 .about p {
     margin-bottom: 3rem;
+}
+
+.page-footer {
+    background-image: url(../images/footer-s.png);
+    background-size: cover;
+    background-position: center;
+    padding-top: 12rem;
 }
 
 .info {
@@ -118,4 +125,12 @@ img {
 }
 .info td {
     padding: 1rem 0;
+}
+
+.copyright {
+    background-color: #432;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 6rem;
+    color: #fff;
 }
