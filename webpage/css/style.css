@@ -94,6 +94,13 @@ img {
     height: 800px;
 }
 
+.sub-cover {
+    background-size: cover;
+    background-position: center bottom;
+    height: 528px;
+    margin-bottom: 4rem;
+}
+
 .cover-home {
     background-image: url(../images/cover-home-s.png)
 }
@@ -106,6 +113,47 @@ img {
 
 .about p {
     margin-bottom: 3rem;
+}
+
+.cover-news {
+    background-image: url(../images/cover-news-s.png);
+}
+
+.post {
+    margin-bottom: 3rem;
+}
+
+.post-title {
+    font-weight: normal;
+    margin-bottom: 1.25rem;
+}
+
+.post-info {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.post-cat {
+    display: flex;
+    gap: .5rem;
+    list-style: none;
+}
+
+.post-cat a {
+    color: #432;
+    background-color: #faf7f0;
+    border-radius: 8px;
+    font-size: .875rem;
+    padding: .5rem .75rem;
+}
+
+.post-cat a:hover {
+    background-color: #c9c2bc;
+}
+
+.post-date {
+    font-size: .875rem;
 }
 
 .page-footer {
