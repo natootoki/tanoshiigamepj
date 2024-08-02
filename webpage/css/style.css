@@ -141,6 +141,10 @@ img {
     background-image: url(../images/cover-news-s.png);
 }
 
+.cover-menu {
+    background-image: url(../images/cover-menu-s.png);
+}
+
 .post {
     margin-bottom: 3rem;
 }
