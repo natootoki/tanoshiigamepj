@@ -145,6 +145,23 @@ img {
     background-image: url(../images/cover-menu-s.png);
 }
 
+.grid {
+    display: grid;
+    gap: 2rem 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+}
+
+.item img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.item p {
+    font-size: .875rem;
+}
+
 .post {
     margin-bottom: 3rem;
 }
@@ -277,6 +294,20 @@ img {
     .sidebar .heading-medium {
         line-height: 1;
         margin-bottom: 1rem;
+    }
+
+    .cover-menu {
+        background-image: url(../images/cover-menu-l.png);
+    }
+    .grid {
+        gap: 3rem 2rem;
+        grid-template-columns:repeat(3, 1fr);
+    }
+    .item img {
+        margin-bottom: 1rem;
+    }
+    .item p {
+        font-size: 1rem;
     }
 
     .page-footer {
