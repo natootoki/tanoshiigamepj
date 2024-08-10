@@ -90,6 +90,10 @@ img {
     translate: 10px;
 }
 
+iframe {
+    width: 100%;
+}
+
 .logo {
     width: 240px;
 }
@@ -160,6 +164,10 @@ img {
 
 .item p {
     font-size: .875rem;
+}
+
+.cover-contact {
+    background-image: url(../images/cover-contact-s.png);
 }
 
 .item-big {
@@ -318,6 +326,74 @@ img {
     }
     .item p {
         font-size: 1rem;
+    }
+
+    .cover-contact {
+        background-image: url(../images/cover-contact-l.png);
+    }
+    .location {
+        display: flex;
+        gap: 2rem;
+    }
+    .location-info {
+        width: 32%;
+    }
+    .location-info .info th {
+        padding-left: 2rem;
+    }
+    .location-map {
+        width: 64%;
+    }
+    .email {
+        margin-bottom: 4rem;
+    }
+    .sns {
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+        margin-bottom: 0;
+    }
+    .sns-item {
+        flex: 1;
+    }
+
+    .location {
+        margin-bottom: 3.5rem;
+    }
+
+    .location-info {
+        margin-bottom: 2rem;
+    }
+
+    .location-info .info {
+        padding: 0;
+    }
+
+    .email {
+        max-width: 916px;
+        background-color: #777;
+        border-radius: 48px;
+        padding: 1.5rem 2.5rem 2.5rem;
+        margin: 0 auto 2rem;
+    }
+
+    .email p {
+        margin: 1rem 0 2rem;
+    }
+
+    .sns-item {
+        margin-bottom: 2rem;
+    }
+    .sns-item .heading-medium {
+        margin-bottom: .5rem;
+    }
+
+    .sns-youtube {
+        aspect-ratio: 16/9;
+    }
+
+    .sns-youtube iframe {
+        height: 100%;
     }
 
     .page-footer {
