@@ -1,93 +1,110 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>画像表示練習</title>
-    <style>
-        #imageContainer {
-            position: relative;
-            width: 800px;
-            height: 600px;
-            border: 1px solid;
-            border-color: white;
-        }
-
-        #imageContainer img {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        body {
-            background-color: black;
-            color: white;
-        }
-    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>画像表示練習</h1>
-    <div id="imageContainer"></div>
+    <header>
+        <div class="cover cover-home">
+            <header class="page-header wrapper">
+                <h1 class="align-center">
+                    <a href="index.html"><img src="natootoki.png" alt="natootoki"></a>
+                </h1>
+                <nav>
+                    <ul class="main-nav font-english">
+                        <li><a href="">blank1</a></li>
+                        <li><a href="">blank2</a></li>
+                        <li><a href="">blank3</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <h2 class="page-title font-english">I'm Natootoki</h2>
+            <section class="about">
+                <h3 class="heading-large font-english">About Natootoki</h3>
+                <p>
+                    Natootokiは無添加、それでいて心と体に悪い言論をご用意しています。
+                    人生本来の醜さを引き出したメニューを楽しみながら、地獄のような時間をお過ごしください。
+                </p>
+                <div class="align-center">
+                    <a class="btn" href="menu.html">メニューを見る</a>
+                </div>
+            </section>
+        </div>
+    </header>
 
-    <script>
+    <main class="contents">
+        <article class="article">
+            Hello, world!<br>
+            <img src="tama.png" alt="tama">
+            <table class="info">
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                </tr>
+            </table>
+        </article>
+    
+        <aside class="aside">
+            Hello, HTML!<br>
+            <img src="a.png" alt="a">
+            <table class="info">
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                </tr>
+            </table>
+        </aside>
 
-        var imageList = [
-            {
-                name: "slime",
-                imageUrl: 'slime.png',
-                x: 32*9,
-                y: 32*10,
-                z: 0,
-                clipX: 0,
-                clipY: 0,
-                clipWidth: 32,
-                clipHeight: 32
-            },
-            // 他の画像データも追加可能
-        ];
+        <aside class="aside">
+            Hello, CSS!<br>
+            <img src="hoshi.png" alt="hoshi">
+            <table class="info">
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                </tr>
+            </table>
+        </aside>
+    </main>
 
-        function displayImages() {
-            var container = document.getElementById("imageContainer");
-            container.innerHTML = ""; // コンテナ内の既存の要素をクリア
-
-            imageList.forEach(function(imageData) {
-                var img = document.createElement('img');
-                img.src = imageData.imageUrl;
-                img.style.position = 'absolute';
-                img.style.left = (imageData.x - imageData.clipX) + 'px'; // 切り取る範囲の左上隅の座標からの相対位置
-                img.style.top = (imageData.y - imageData.clipY) + 'px'; // 切り取る範囲の左上隅の座標からの相対位置
-                img.style.clip = 'rect(' + imageData.clipY + 'px, ' + (imageData.clipX + imageData.clipWidth) + 'px, ' + (imageData.clipY + imageData.clipHeight) + 'px, ' + imageData.clipX + 'px)';
-                container.appendChild(img);
-            });
-            console.log("Hello.");
-        }
-
-        function main() {
-            if (imageList[0].x < 256+32) {
-                imageList[0].x++;
-            }
-            displayImages();
-            requestAnimationFrame(main);
-        }
-
-        requestAnimationFrame(main);
-
-        // ページをクリックしたときに実行される関数
-        function handleClick() {
-            // displayImage('./slime.png', 'imageContainer', 50, 0, 32, 0, 32, 32);
-            if (imageList[0].x >= 32*9) {
-                imageList[0].x = 0;
-            }
-        }
-
-        // クリックを離したときに実行される関数
-        function handleRelease() {
-            // displayImage('./slime.png', 'imageContainer', 50, 0, 0, 0, 32, 32);
-        }
-
-        // クリックイベントのリスナーを設定
-        document.addEventListener('mousedown', handleClick);
-        document.addEventListener('mouseup', handleRelease);
-    </script>
+    <footer>
+        Bye.
+    </footer>
 </body>
 </html>
