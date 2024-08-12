@@ -61,6 +61,11 @@ main {
     padding: 0 1.5rem;
 }
 
+.cover-home {
+    background-image: url(./cover.png);
+    background-repeat: repeat-x;
+}
+
 @media (min-width: 800px) {
 
     .contents {
