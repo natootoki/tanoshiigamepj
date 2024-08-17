@@ -82,13 +82,13 @@ main {
 
 @keyframes moveLeftRight {
     0% {
-        left: 0;
+        left: 10%;
     }
     50% {
-        left: calc(100% - 50px);
+        left: calc(90% - 50px);
     }
     100% {
-        left: 0;
+        left: 10%;
     }
 }
 
