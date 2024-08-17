@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,14 @@
 
     <title>画像表示練習</title>
     <link rel="stylesheet" href="./style.css">
+
+       	<!--ツールチップ出現用のアニメーションを指定するCSS。読み込まなくてもフェードインで出現します。-->
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@5.0.3/animations/shift-toward-subtle.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@5.0.3/animations/shift-toward-extreme.css">
+	<!--ツールチップの色を指定するCSS。読み込まなくても黒色で出現します。-->
+	<link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@5.0.3/themes/light-border.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@5.0.3/themes/light.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@5.0.3/themes/material.css">
 </head>
 <body>
     <header>
@@ -32,12 +40,14 @@
             <section class="about">
                 <h3 class="heading-large font-english">About Natootoki</h3>
                 <p>
-                    Natootokiは無添加、それでいて心と体に悪い言論をご用意しています。
+                    <span class="cap" data-tippy-content="キャプションが入ります。">Natootoki</span>は無添加、それでいて心と体に悪い言論をご用意しています。
                     人生本来の醜さを引き出したメニューを楽しみながら、地獄のような時間をお過ごしください。
                 </p>
             </section>
         </div>
     </header>
+
+    <div class="bouncing-circle"></div>
 
     <main class="contents">
         <article class="article">
@@ -110,5 +120,9 @@
     <footer>
         Bye.
     </footer>
+
+    <script src="https://unpkg.com/popper.js@1"></script>
+    <script src="https://unpkg.com/tippy.js@5"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
