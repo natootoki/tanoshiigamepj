@@ -145,16 +145,6 @@ main {
     transform: scaleY(0);
 }
 
-/*========= レイアウトのためのCSS ===============*/
-
-a{
-    color: #333;
-}
-
-a:hover{
-     text-decoration: none;   
-}
-
 @media (min-width: 800px) {
 
     .contents {
