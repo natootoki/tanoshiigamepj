@@ -12,6 +12,7 @@
 
     <title>画像表示練習</title>
 
+    <link rel="stylesheet" href="./reset.css">
     <!--ツールチップ出現用のアニメーションを指定するCSS。読み込まなくてもフェードインで出現します。-->
 	<link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@5.0.3/animations/shift-toward-subtle.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@5.0.3/animations/shift-toward-extreme.css">
@@ -22,119 +23,120 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div id="splash">
-        <div id="splash_text"></div>
-        <div class="loader_cover loader_cover-up"></div>
-		<div class="loader_cover loader_cover-down"></div>
-    </div>
+    <div id="particles-js"></div>
+    <div id="wrapper">
+        <div id="splash">
+            <div id="splash_text"></div>
+            <div class="loader_cover loader_cover-up"></div>
+            <div class="loader_cover loader_cover-down"></div>
+        </div>
 
-    <div id="container">
-        <header>
-            <div class="cover cover-home">
-                <header class="page-header wrapper">
-                    <h1 class="align-center">
-                        <a href="index.html"><img src="natootoki.png" alt="natootoki"></a>
-                    </h1>
-                    <nav>
-                        <ul class="main-nav font-english">
-                            <li><a href="">blank1</a></li>
-                            <li><a href="">blank2</a></li>
-                            <li><a href="">blank3</a></li>
-                        </ul>
-                    </nav>
-                </header>
-                <h2 class="page-title font-english">I'm Natootoki</h2>
-                <section class="about">
-                    <h3 class="heading-large font-english">About Natootoki</h3>
-                    <p>
-                        <span class="cap" data-tippy-content="キャプションが入ります。">Natootoki</span>は無添加、それでいて心と体に悪い言論をご用意しています。
-                        人生本来の醜さを引き出したメニューを楽しみながら、地獄のような時間をお過ごしください。
-                    </p>
-                </section>
-            </div>
-        </header>
+        <div id="container">
+            <header>
+                <div class="cover cover-home">
+                    <header class="page-header wrapper">
+                        <h1 class="align-center">
+                            <a href="index.html"><img src="natootoki.png" alt="natootoki"></a>
+                        </h1>
+                        <nav>
+                            <ul class="main-nav font-english">
+                                <li><a href="">blank1</a></li>
+                                <li><a href="">blank2</a></li>
+                                <li><a href="">blank3</a></li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <h2 class="page-title font-english">I'm Natootoki</h2>
+                    <section class="about">
+                        <h3 class="heading-large font-english">About Natootoki</h3>
+                        <p>
+                            <span class="cap" data-tippy-content="キャプションが入ります。">Natootoki</span>は無添加、それでいて心と体に悪い言論をご用意しています。
+                            人生本来の醜さを引き出したメニューを楽しみながら、地獄のような時間をお過ごしください。
+                        </p>
+                    </section>
+                </div>
+            </header>
 
-        <div class="bouncing-circle"></div>
+            <main class="contents">
+                <article class="article">
+                    Hello, world!<br>
+                    <img src="tama.png" alt="tama">
+                    <table class="info">
+                        <tr>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                        </tr>
+                    </table>
+                </article>
+            
+                <aside class="aside">
+                    Hello, HTML!<br>
+                    <img src="a.png" alt="a">
+                    <table class="info">
+                        <tr>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                        </tr>
+                    </table>
+                </aside>
 
-        <main class="contents">
-            <article class="article">
-                Hello, world!<br>
-                <img src="tama.png" alt="tama">
-                <table class="info">
-                    <tr>
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                    </tr>
-                </table>
-            </article>
-        
-            <aside class="aside">
-                Hello, HTML!<br>
-                <img src="a.png" alt="a">
-                <table class="info">
-                    <tr>
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                    </tr>
-                </table>
-            </aside>
+                <aside class="aside">
+                    Hello, CSS!<br>
+                    <img src="hoshi.png" alt="hoshi">
+                    <table class="info">
+                        <tr>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                        </tr>
+                    </table>
+                </aside>
+            </main>
 
-            <aside class="aside">
-                Hello, CSS!<br>
-                <img src="hoshi.png" alt="hoshi">
-                <table class="info">
-                    <tr>
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                    </tr>
-                </table>
-            </aside>
-        </main>
-
-        <footer>
-            Bye.
-        </footer>
+            <footer>
+                Bye.
+            </footer>
+        </div>
     </div>
 
     <script src="https://unpkg.com/popper.js@1"></script>
     <script src="https://unpkg.com/tippy.js@5"></script>
-    <script src="./script.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script src="./script.js"></script>
 </body>
