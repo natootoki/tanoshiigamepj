@@ -20,6 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@5.0.3/themes/light-border.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@5.0.3/themes/light.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/tippy.js@5.0.3/themes/material.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -46,7 +47,7 @@
                             </ul>
                         </nav>
                     </header>
-                    <h2 class="page-title font-english">I'm Natootoki</h2>
+                    <h2 class="fadeInUpTrigger page-title font-english animate__delay-1s">I'm Natootoki</h2>
                     <section class="about">
                         <h3 class="heading-large font-english">About Natootoki</h3>
                         <p>
@@ -128,6 +129,11 @@
             <footer>
                 Bye.
             </footer>
+
+            <div class="wave">
+                <canvas id="waveCanvas"></canvas>
+            </div>
+
         </div>
     </div>
 
@@ -136,6 +142,7 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script src="./script.js"></script>

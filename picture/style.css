@@ -140,6 +140,19 @@ html,body{
 	height: 100%;
 }
 
+/*========= waveを描画するエリア設定 ===============*/
+
+.wave{
+	position: relative;
+}
+
+.wave canvas{
+    position: absolute;
+    bottom: 0;
+	left:0;
+    width: 100%;
+}
+
 @media (min-width: 800px) {
 
     .contents {
